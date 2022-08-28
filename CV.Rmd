@@ -1,16 +1,16 @@
 ---
-name: Lorena Abad
-position: "Researching the Environment through Geospatial Technologies"
+name: An Shu Te
+position: "Research Assistant at Clinical Brain Lab"
 address: |
-         | Schillerstraße 30, 5020 Salzburg, Austria
-profilepic: lore.jpg
-phone: +43 662 8044 7582 
-email: "lorena.abad@plus.ac.at"
-twitter: loreabad6
-github: loreabad6
-linkedin: lorena-abad
-researchgate: Lorena_Abad2
-orcid: 0000-0003-0554-734X
+         | Nanyang Technological University, Singapore
+profilepic: 
+phone: +65 9877 0811
+email: "teanshu97@gmail.com"
+twitter: anshu_te97
+github: anshu-97
+linkedin: an-shu-te-101238201
+researchgate: An-Shu-Te
+orcid: 0000-0001-8008-2824
 headcolor: 009ACD
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
@@ -23,7 +23,8 @@ header-includes:
   \usepackage{colortbl}
   \arrayrulecolor{white}
   \usepackage{hhline}
-  \definecolor{light-gray}{gray}{0.95}
+  \definecolor{dark-gray}{gray}{1.5}
+  \colorlet{text}{darkgray}
 editor_options: 
   chunk_output_type: console
 ---
@@ -44,193 +45,75 @@ library(huxtable)
 library(gridExtra)
 ```
 
-```{r}
-# \paragraphstyle{I am an environmental engineer from Cuenca, Ecuador specialized in Geospatial Technologies, expected by March 2019. My research scope includes spatial data analysis, particularly focused on R programming; remote sensing and earth observation data analysis, specially optical satellite imagery applied to environmental studies and analyses such as air pollution, land use/land cover change; geostatistical analysis of climate data; and ecological modelling. I feel very keen to pursue a career in research, science, and academia.}
-```
+
 
 <!-- | Nationality: Ecuadorian, Birthdate: 05/01/1994 -->
 
-\faIcon{plane} My journey
-============================
+Biography
+==========================================
 
-```{r edu_plot,fig.align='center', fig.width=6.5, fig.height=2.7, fig.showtext=TRUE}
-load.fontawesome()
-uni = fontawesome('fa-university')
-work = fontawesome('fa-briefcase')
-# teach = fontawesome('fa-chalkboard')
+\paragraphstyle{My research interests lie in emotional regulation, particularly in investigating its association with interoception and personality traits. I am also fascinated by the psychopathology underlying psychotic and mood disorders, as well as the role mindfulness-based treatments play in alleviating its symptoms.}
 
-world = ne_countries("medium", returnclass = 'sf')
-cities_geom = st_sfc(
-    st_point(c(-79.00453,-2.90055)),
-    st_point(c(-9.13333,38.71667)),
-    st_point(c(7.6261,51.9607)),
-    st_point(c(12.9864,47.8029))
-  ) 
-
-cities = st_sf(
-  name = c('Cuenca, EC','Lisbon, PT','Münster, DE', 'Salzburg, AT'),
-  geometry = cities_geom
-  ) |>
-  st_set_crs(4326) |>
-  mutate(label = c(paste(work,uni, sep = " "), rep(uni,2), work))
-
-routes = cities |> 
-  as_sfnetwork() |> 
-  st_as_sf('edges') |> 
-  st_segmentize(units::set_units(100, m))
-
-ggplot() +
-  geom_sf(data = world, color = 'white', lwd = 0.1) +
-  geom_sf_text(
-    data = cities,
-    aes(label = label),
-    size = 3,
-    color = '#009ACD',
-    family = "fontawesome-webfont"
-  ) +
-  geom_sf(
-    data = routes,
-    color = '#009ACD',
-    size = 0.5, alpha = 0.5,
-    linetype = 'dotted'
-  ) +
-  coord_sf(
-    crs = '+proj=robin',
-    xlim = c(-10000000, 4500000),
-    ylim = c(-650000,6500000)
-  ) +
-  theme_void() +
-  theme(
-    plot.margin = margin(-1, 0, -0.5, 0, "cm")
-  )
-```
-
-\faIcon{briefcase} Professional Experience
+\faIcon{briefcase} Research Experience
 ============================================
 
-```{r experience, eval = T}
-exp = rorcid::orcid_employments("0000-0003-0554-734X") |>
-  purrr::map(purrr::pluck, "affiliation-group", "summaries") |> 
-  purrr::flatten_dfr()
-names(exp) = stringr::str_remove(string = names(exp), pattern = "employment-summary.") 
+```{r research, eval = T}
 
-exp |>
-  filter(!stringr::str_detect(`role-title`, 'Teaching')) |>
-  filter(!stringr::str_detect(`role-title`, 'Internship')) |> 
-  mutate(`role-title` = case_when(
-    stringr::str_detect(`department-name`, "Carrera de Ingeniería Ambiental") ~ "Research Assistant",
-    TRUE ~ `role-title`
-  )) |> 
-  mutate(`start-date.month.value` = case_when(
-    stringr::str_detect(`department-name`, "Carrera de Ingeniería Ambiental") ~ "03",
-    TRUE ~ `start-date.month.value`
-  )) |> 
-  mutate(`end-date.year.value` = case_when(
-   stringr::str_detect(`department-name`, "Carrera de Ingeniería Ambiental") ~ "2017",
-    TRUE ~ `end-date.year.value`
-  )) |>
-  mutate(`end-date.month.value` = case_when(
-    stringr::str_detect(`department-name`, "Carrera de Ingeniería Ambiental") ~ "08",
-    TRUE ~ `end-date.month.value`
-  )) |> 
-  mutate(count = c(7,1,1,1,1)) |> 
-  tidyr::uncount(count) |> 
-  mutate(description = c(
-    'Remote sensing and GIS specialist studying natural geohazards in the Risk, Hazard & Climate and EO Analytics research groups for different projects:',
-    'SliDEM: Assessing the suitability of DEMs derived from Sentinel-1 for landslide volume estimation | Role: Python package developer.',
-    'MontEO: The impact of mass movements on alpine trails and huts assessed by EO data | Role: Susceptibility mapping.',
-    'STEC: Smarter Targeting of Erosion Control | Role: Mapping geomorphological features with deep learning and knowledge-based techniques.',
-    'RiCoLa: Detection and Analysis of Landslide-induced River Course Changes and Lake Formation.',
-    'MORPH: Mapping, Monitoring and Modelling the Spatio-Temporal Dynamics of Land Surface Morphology.',
-    'citizenMorph: Observation and Reporting of Landscape Dynamics by Citizens.',
-    'Spatio-temporal data analyst for the project Pies y Pedales: Study of Cyclists and Pedestrian Mobility Patterns in Cuenca for a Sustainable Mobility.',
-    'CEDIA project: Geo-statistical Inference of Meteorological Data for Azuay and Chimborazo provinces.',
-    'Project: Water Quality and Environmental Variables Monitoring in Artificial Habitats for Endangered Species in Cuenca.',
-    'Project: Determination of Particulate Matter PM10, PM2.5, and noise in Cuenca canton.'
-    #\\href{http://monteo.zgis.at/}{\\textit{MontEO}}
-    # 'Remote Sensing course for the Environmental Engineering Career from the University of Cuenca.',
-    # 'Introduction to Physics course for the Environmental Engineering Career from the University of Cuenca.'
-    # "Cartographic data gathering organization, topographic correction and categorization of urban land uses, scientific papers analysis for bibliographic review.",
-    # "Assess the functioning state of Davis Station sensors, identify similarities and differences of two river basins hydrograms, analyze the effects of temperature and relative humidity on reference evapotranspiration calculation."
-  )) |>
-  detailed_entries(
-    with = paste(`role-title`, `department-name`, sep = ' - '),
-    when = paste(
-      paste(`start-date.month.value`,`start-date.year.value`, sep = ', '),
-      ifelse(is.na(`end-date.year.value`),"Present",paste(`end-date.month.value`,`end-date.year.value`, sep = ', ')),
-      sep = ' - '
-    ),
-    what = organization.name,
-    where = paste(organization.address.city,organization.address.country, sep =', '),
-    why = description,
-    .protect = TRUE
-  )
+tibble:: tribble(
+  ~title, ~date, ~company, ~location, ~desc,
+  'Research Assistant', '10-2021, Present', 'Clinical Brain Lab', 'Nanyang Technological University', c('Coordinate project meetings and facilitate communication among project personnel',
+    'Develop and maintain project operational procedures, training materials and documents',
+    'Develop and conduct online cognitive behavioural tasks and surveys (using JSPscyh etc.,)',
+    'Perform data preprocessing and analysis',
+    'Perform EEG, physiological and behavioural data collection',
+    'Coordinate data collection and cognitive training sessions.',
+    'Assist in the prepartion and writing of progress reports, scientific presentations, manuscripts, abstracts and publications',
+    'Manage and maintain project records.'),
+  'Research Assistant', '05-2021, 10-2021', 'Singapore Management University', 'Singapore Management University', c('Recruit subjects on and off campus',
+    'Develop and conduct surveys and cognitive behavioual tasks',
+    'Summarize research findings and preprocess data',
+    'Assisting in the preparation and writing of progress reports, scientific presentations, abstracts, manuscripts and publications')
+  
+) |> 
+  detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect = TRUE)
+
 ```
 
-<!--
+
 \faIcon{chalkboard} Teaching Experience
 ============================================
 
 ```{r teaching, eval = T}
-exp |>
-  filter(stringr::str_detect(`role-title`, 'Teaching')) |> 
-  mutate(description = c(
-    'Remote Sensing course for the Environmental Engineering Career from the University of Cuenca.',
-    'Introduction to Physics course for the Environmental Engineering Career from the University of Cuenca.'
-  )) |>
-  detailed_entries(
-    with = paste(`role-title`, `department-name`, sep = ' - '),
-    when = paste(
-      paste(`start-date.month.value`,`start-date.year.value`, sep = ', '),
-      ifelse(is.na(`end-date.year.value`),"Present",paste(`end-date.month.value`,`end-date.year.value`, sep = ', ')),
-      sep = ' - '
-    ),
-    what = organization.name,
-    where = paste(organization.address.city,organization.address.country, sep =', '),
-    why = description
-    # .protect = FALSE
-  )
+tibble:: tribble(
+  ~title, ~date, ~company, ~location, ~desc,
+  'Research Assistant', '08-2022, 08-2022', 'Clinical Brain Lab', 'Nanyang Technological University', c('Conducted an "Intro to Github" workshop'),
+  'Special Education Teacher', '08-2020, 05-2021', 'Fernvale Garden School', 'Movement for the Intellectually Disabled', c('Taught students (7 - 18 year olds) with moderate to severe neurodevelopmental disorders',
+'Teach students different coping mechanisms to manage behavioural disorders',
+'Support students’ learning using a range of different teaching strategies and handmade as well as self-sourced IT resources',
+'Kept classrooms organized, clean, neat and properly sanitized for student health and classroom efficiency'),
+) |> 
+  detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect=TRUE)
 ```
--->
+
+
+
 \faIcon{university} Education
 ==================================
 
-```{r education}
-tribble(
+```{r education, eval = T}
+tibble:: tribble(
   ~ study, ~ university, ~ loc, ~ dates, ~ details,
-    "Erasmus Mundus Msc. Geospatial Technologies", "Universidade Nova de Lisboa \\& Westfälische Wilhelms-Universität Münster ","Lisbon, PT \\& Münster, DE", "2017 - 2019", "Geospatial Data Mining, Geostatistics, Remote Sensing, Geographic Information Science, Spatial Data Science with R and Python, Unmanned Aerial Systems.",
-    "Erasmus Mundus Msc. Geospatial Technologies", "Universidade Nova de Lisboa \\& Westfälische Wilhelms-Universität Münster ","Lisbon, PT \\& Münster, DE", "2017 - 2019", "Masters Thesis: Validating a bike network analysis score based on open data as a connectivity measure of urban cycling infrastructure adapted for European cities. Supervised by Prof. Dr. Edzer Pebesma. URL: \\textit{http://hdl.handle.net/10362/67511}",
-  "Environmental Engineer BSc.", "Universidad de Cuenca", "Cuenca, EC", "2011 - 2016", "Environmental Studies, Natural Resources Management, Cartography, Remote Sensing, Ecology, Hydrology, Meteorology and Climatology, among 66 subjects.",
-  "Environmental Engineer BSc.", "Universidad de Cuenca", "Cuenca, EC", "2011 - 2016", "Bachelor Thesis (in spanish): Particulate Matter less than 10 microns concentration estimation through Remote Sensing in the Urban Area of Cuenca city. Supervised by MSc. Danilo Mejía Coronel. URL: \\textit{http://dspace.ucuenca.edu.ec/handle/123456789/25484}",
-) |> 
-  detailed_entries(study, dates, university, loc, details, .protect=FALSE)
+    "Department of Psychology", "National University of Singapore", "Singapore", "2016 - 2020", c("Bachelor of Social Sciences with Honors (Highest Distinction) in Psychology", "Honors Thesis: What Happens After we Choose to Eat the Forbidden Fruit - Effects of Indulgence Autonomy on Post-Temptation Motivation"),)|> 
+  detailed_entries(study, dates, university, loc, details, .protect=TRUE)
 ```
 
-\faIcon*{file} Selected Publications
+\faIcon*{file} Publications
 ===========================
 
 \footnotesize
 
-For a complete list of publications see [*my Google Scholar profile*](https://scholar.google.com/citations?user=vDqPwpUAAAAJ&hl=en).
+- Makowski, D.; **Te, A.S.**; Pham, T.; Lau, Z.J.; Chen, S.H.A. The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices Using NeuroKit2. Entropy 2022, 24, 1036. https://doi.org/10.3390/e24081036
 
-- **Abad, L.**, Hölbling, D., Albrecht, F., Dias, H. C., Dabiri, Z., Reischenböck, G., Tešić, D. (2022). [*Mass movement susceptibility assessment of alpine infrastructure in the Salzkammergut area, Austria*](https://doi.org/https://doi.org/10.1016/j.ijdrr.2022.103009). International Journal of Disaster Risk Reduction, 103009. 
-
-- **Abad, L.**, Hölbling, D. W., Dabiri, Z., Robson, B. A. (2022). [*An open-source Python package for DEM generation and landslide volume estimation based on Sentinel-1 imagery*](https://doi.org/10.5194/egusphere-egu22-693). EGU General Assembly 2022, Vienna, Austria.
-
-- **Abad, L.**, Hölbling, D., Spiekermann, R., Prasicek, G., Dabiri, Z., Argentin, A.-L. (2022). [*Detecting landslide-dammed lakes on Sentinel-2 imagery and monitoring their spatio-temporal evolution following the Kaikōura earthquake in New Zealand*](https://doi.org/10.1016/j.scitotenv.2022.153335). Science of The Total Environment, 820, 153335. 
-
-- Dabiri, Z., Hölbling, D., **Abad, L.**, Guðmundsson, S. (2021). [*Comparing the Applicability of Sentinel-1 and Sentinel-2 for Mapping the Evolution of Ice-marginal Lakes in Southeast Iceland*](https://doi.org/10.1553/giscience2021_01_s46). GI_Forum, 1(1), 46–52.
-<!-- - Dabiri, Z., Hölbling, D., **Abad, L.**, Helgason, J. K., Sæmundsson, Þ., Tiede, D. (2020). [*Generation of Multi-Temporal Dems from Sentinel-1 for Assessing Geomorphological Changes in the Hítardalur Valley, Western Iceland*](https://doi.org/10.1130/abs/2020AM-357105). Geological Society of America Abstracts with Programs, 52 (6). -->
-
-- Dabiri, Z., Hölbling, D., **Abad, L.**, Helgason, J. K., Sæmundsson, Þ., Tiede, D. (2020). [*Assessment of Landslide-Induced Geomorphological Changes in Hítardalur Valley, Iceland, Using Sentinel-1 and Sentinel-2 Data*](https://doi.org/10.3390/app10175848). Applied Sciences, 10(17), 5848.
-
-- Hennig, S., **Abad, L.**, Hölbling, D., Tiede, D. (2020). [*Implementing Geo Citizen Science Solutions: Experiences from the citizenMorph Project*](https://doi.org/10.1553/giscience2020). Journal for Geographic Information Science, 7(2), 3–14.
-
-- **Abad, L.**, Hölbling, D., Spiekermann, R., Dabiri, Z., Prasicek, G., Argentin, A.-L. (2020). [*Mapping and monitoring of landslide-dammed lakes using Sentinel-2 time series -a case study after the 2016 Kaikōura Earthquake in New Zealand*](https://doi.org/10.5194/egusphere-egu2020-572). EGU General Assembly 2020.
-
-- Hölbling, D., **Abad, L.**, Dabiri, Z., Prasicek, G., Tsai, T.-T., Argentin, A.-L. (2020). [*Mapping and Analyzing the Evolution of the Butangbunasi Landslide Using Landsat Time Series with Respect to Heavy Rainfall Events during Typhoons*](https://doi.org/10.3390/app10020630). Applied Sciences. 10, 630.
-
-- **Abad, L**., van der Meer, L. (2018). [*Quantifying Bicycle Network Connectivity in Lisbon Using Open Data*](https://doi.org/10.3390/info9110287). Information, 9(11), 14.
 
 \normalsize
 
@@ -242,23 +125,22 @@ For a complete list of publications see [*my Google Scholar profile*](https://sc
 
 \faIcon{satellite} Research projects
 ---------------------------------
-<!-- \par\noindent\nobreak\vspace{-30pt}\rule{\textwidth}{1pt} -->
+\par\noindent\nobreak\vspace{-30pt}\rule{\textwidth}{1pt} 
 
-<!--
+
 ```{r proj}
-tribble(
-  ~ name, ~ acronym, ~ date, ~study_area,
-  "Smarter Targeting of Erosion Control", "STEC", "2018 - 2023", "NZ", 
-  "The impact of mass movements on alpine trails and huts assessed by EO data", "MontEO \\href{http://monteo.zgis.at/}{\\tiny{\\faIcon{link}}}", "2020 - 2021", "AT", 
-  "Detection and Analysis of Landslide-induced River Course Changes and Lake Formation", "RiCoLa \\href{http://landslides-and-rivers.sbg.ac.at/}{\\tiny{\\faIcon{link}}}", "2017 - 2020", "AT, NZ, TW", 
-  "Observation and Reporting of Landscape Dynamics by Citizens", "citizenMorph \\href{http://citizenmorph.sbg.ac.at/}{\\tiny{\\faIcon{link}}}", "2018 - 2020", "AT, DE, IS", 
-  "Mapping, Monitoring and Modelling the Spatio-Temporal Dynamics of Land Surface Morphology", "MORPH \\href{http://morph.sbg.ac.at/}{\\tiny{\\faIcon{link}}}", "2016 - 2020", "IS"
-) |> 
-  detailed_entries(with = acronym, what = name, when = date, where = study_area, .protect=FALSE)  
+proj <- tibble:: tribble(
+  ~ name, ~ acronym, ~ date, ~study_area, 
+  "A Neuroscientific Investigation of the Interaction between Crowdedness and Environment Typology", "NICE", "2021 - 2022", "SG", 
+  "That's Fake News: Modulating the Neurocognitive Processes Underlying the Belief in Deceptive Information", "PPF", "2021-2022", "SG",
+  "Cognitive, Neural and Social Factors involved in the Perception of Real vs Fake Information", "PROOF", "2022-2025", "SG",)
+  
+proj <- proj|> 
+  detailed_entries(with = acronym, what = name, when = date, where = study_area, .protect=TRUE)  
 ```
 
-\smallskip
 
+<!--
 \faIcon{laptop-code} Programming projects
 ----------------------------------
 <!-- \par\noindent\nobreak\vspace{-30pt}\rule{\textwidth}{1pt} -->
@@ -298,56 +180,45 @@ tribble(
   brief_entries(with = lang, what = sum, when = link, .protect=FALSE)  
 ```
 -->
-<!--
 
-\faIcon{comments} Presentations, blogs, courses
+
+\faIcon{comments} Conferences & Presentations
 ================================
 
-```{r presentations}
-tribble(
-  ~ title, ~ link, ~ event, ~ date,
-  "Mapping and monitoring landslide-dammed lakes in Kaikōura, New Zealand, using the Google Earth Engine", "Lightning Talk at the Geo For Good 2020 Summit Public Sector Meetup \\href{https://www.youtube.com/watch?v=CbHYkUpCwCI&ab_channel=GoogleEarth}{\\tiny{\\faIcon{link}}}", "Geo for Good 2020", "10, 2020",
-  "El rol de las tecnologías geoespaciales para el mapeo y monitoreo de peligros naturales", "Invited talk at the event 'Voces de la Ingeniería Ambiental' \\href{https://loreabad6.github.io/VocesAmbiental/presentacion.html}{\\tiny{\\faIcon{link}}}", "Voces Ambiental 2020", "09, 2020",
-  "Bicycle Network Analysis for assessing cyclability", "Presentation during Cycling Potential Hackathon: Lisbon \\href{https://github.com/U-Shift/cyclingpotential-hack}{\\tiny{\\faIcon{link}}}", "U-Shift event", "09, 2020",
-  "Implementing geo citizen science solutions: experiences from the citizenMorph project", "Full paper presentation in session C43: Spatial Citizens Science \\href{https://www.conftool.com/giweek2020/index.php?page=browseSessions&form_session=202}{\\tiny{\\faIcon{link}}}", "Gi-Forum 2020", "07, 2020",
-  "Tidy Geospatial Networks in R: Introducing the sfnetworks package", "Webinar \\& Hackathon \\href{https://sfnetworks.github.io/sfnetworks-webinar/slides}{\\tiny{\\faIcon{link}}}", "e-Rum 2020 satellite event", "06, 2020",
-  "Mapping and monitoring of landslide-dammed lakes using Sentinel-2 time series", "Display in session Natural Hazards NH6.1 \\href{https://presentations.copernicus.org/EGU2020/EGU2020-572_presentation.pdf}{\\tiny{\\faIcon{link}}}", "EGU 2020", "05, 2020",
-  "Intro to spatial vector data analysis with R","R spatial crash course \\href{https://luukvdmeer.github.io/maptimeR/exercises.html}{\\tiny{\\faIcon{link}}}", "Maptime Salzburg", "02, 2020",
-  "Spatial networks in R with sf and tidygraph", "Blogpost \\href{https://www.r-spatial.org/r/2019/09/26/spatial-networks.html}{\\tiny{\\faIcon{link}}}", "r-spatial blog", "09, 2019",
-  "Bicycle Network Analysis for Lisbon", "Short Paper Presentation in the 2nd Open Data for Open Cities Workshop \\href{https://github.com/GeoTecINIT/OpenData4OpenCities/blob/master/Presentations/AGILE_2018_Presentation_Abad-vdMeer.pdf}{\\tiny{\\faIcon{link}}}", "AGILE Workshop: OD4OC", "06, 2018",
-  "Exploring Space-Time Patterns Of Volunteered Cycling Data In An Intermediate City", "Abstract Presentation", "GeoMundus 2017", "11, 2017"
-) |> 
-  detailed_entries(with = title, what = link, where = event, when = date, .protect=FALSE)  
+```{r conferences}
+tibble:: tribble(
+  ~ title, ~ event, ~ date,
+  "Fractal dimension of EEG activity is linked to distinct facets of resting-state cognition",  "Organization for Human Brain Mapping (OHBM)", "06, 2022",
+  "A Closer Look at Cardiac Contraction and the Effect of Cardiac Timing on Cognitive Control",  "Organization for Human Brain Mapping (OHBM)", "06, 2022",
+)|> 
+  detailed_entries(with = title, where = event, when = date, .protect=TRUE)  
 ```
--->
+
 
 \faIcon{medal} Awards & Distinctions
 ===============================
 
 ```{r dist}
-tribble(
+tibble:: tribble(
   ~ area, ~ org, ~ date,
-    "Copernicus Masters Austria price (2nd place)", "Copernicus Masters", "2020",
-  "ISC funding for {sfnetworks}", "R-Consortium", "2019",
-  "Benigno Malo Prize - University Honors Award", "Universidad de Cuenca", "2018",
-  "AGILE 2018 conference - travel grant", "AGILE \\& ESRI", "2018",
-  "Erasmus Mundus Scholarship", "European Commission", "2017",
-  # "Best Scientific Poster - 2nd International Summer School \\newline 
-# ``The Biodiversity of Genes, Species and Ecosystems''", "Universität Osnabrück","2015",
-  "Vanguardia Honors Program", "Universidad de Cuenca", "2014 - 2016"
-) |> 
-  brief_entries(what = area, when = date, with = org, .protect = F)
+    "Deans List", "National University of Singapore", "2020",
+  "Wan Boo Sow Chinese Studeies (GE)", "National University of Singapore", "2019",
+  "Deans List", "National University of Singapore", "2019",
+)|> 
+  brief_entries(what = area, when = date, with = org, .protect=TRUE)
 ```
 
 \faIcon{hand-holding-heart} Volunteer work
 ===============================
 
 ```{r vol}
-tribble(
-  ~ desc, ~ date,
-  "Group Peer Mentor in Women in Geospatial+ Mentorship Program", "2020-2021"
-) |> 
-  brief_entries(what = desc, when = date, .protect = F)
+tibble:: tribble(
+  ~ desc, ~location, ~ date,
+  "Regular volunteer (IMHope)", "Institute of Mental Health", "2022-Current",
+  "Overseas volunteer (Project Sangkhem)", "Cambodia", "2019",
+  "Volunteer", "Children's Partnership Pte Ltd (Singapore)", "2019"
+)|> 
+  brief_entries(what = desc, with=location, when = date, .protect=TRUE)
 ```
 
 <!-- 
@@ -379,15 +250,15 @@ tribble(
 ```{r techtable, results='markup'}
 tribble(
    ~`Coding Languages`, ~Software, ~Other,
-  "R -- Python -- SQL -- JavaScript",
-  "QGIS -- Earth Engine -- RStudio -- SAGA -- PostgreSQL -- ArcGIS -- eCognition -- GIMP -- Mendeley",
-  "Git -- Markdown -- LaTex -- OpenStreetMap"
+  "R -- Python--SPSS",
+  "RStudio --JSPsych",
+  "Git -- Markdown"
 ) |>
-  kable(booktabs = T, align = 'c', escape = F, format = "latex") |>
-  kable_styling(full_width = F, font_size = 9, latex_options = "HOLD_position") |> 
-  row_spec(0, bold = T, color = "#009acd") |> 
-  row_spec(1, bold = F, color = "#7f7f7f") |> 
-  column_spec(column = 1:3, width = '4.75cm')
+  knitr::kable(booktabs = T, align = 'c', escape = F, format = "latex") |>
+  kableExtra::kable_styling(full_width = F, font_size = 9, latex_options = "HOLD_position") |> 
+  kableExtra::row_spec(0, bold = T, color = "#009acd") |> 
+  kableExtra::row_spec(1, bold = F, color = "#7f7f7f") |> 
+  kableExtra::column_spec(column = 1:3, width = '4.75cm')
 ```
 
 <!-- \smallskip -->
@@ -416,22 +287,11 @@ tribble(
 ```{r langforeign, results='markup'}
 data.frame(
   Skill = c("Reading", "Writing", "Listening","Speaking"),
-  Spanish = cell_spec(c(rep("Native", 4)), 'latex', color = '#005c7b'), 
-  English = cell_spec(c("C2","C1","C2","C2"), 'latex', color = '#009acd'), 
-  French = cell_spec(c("B2","B2","B2","B2"), 'latex', color = '#4cb8dc'), 
-  German = cell_spec(c("B1","B1","B1","B1"), 'latex', color = '#4cb8dc'), 
-  Portuguese = cell_spec(c("B1","B1","B1","B1"), 'latex', color = '#4cb8dc'), 
-  Dutch = cell_spec(c("A2","A1","A2","A2"), 'latex', color = '#7fcce6') 
-) |>
-  kable(booktabs = T, align = 'c', escape = F, format = "latex") |>
-  kable_styling(full_width = F, font_size = 9, latex_options = "HOLD_position") |> 
-  footnote(
-    footnote_as_chunk = T,
-    general_title = " ",
-    general = "\\\\tiny Common European Framework of Reference for Languages: A1/A2: Basic User. B1/B2: Independent User. C1/C2: Proficient User",
-    escape = F
-  ) |>
-  column_spec(column = 1:6, width = '2.4cm') #|> 
+  English = kableExtra::cell_spec(c("Native", "Native", "Native", "Native"), "latex", color="#009acd"),
+  Mandarin=kableExtra::cell_spec(c("Native", "Native", "Native", "Native"), "latex", color="#4cb8dc") ) |>
+  knitr::kable(booktabs = T, align = 'c', escape = F, format = "latex") |>
+  kableExtra::kable_styling(full_width = F, font_size = 9, latex_options = "HOLD_position") |> 
+  kableExtra::column_spec(column = 1:6, width = '2.4cm') #|> 
   # add_header_above(' ', line = F) |>
   # row_spec(0:4, extra_latex_after = "\\arrayrulecolor{white}") 
 ```
@@ -441,11 +301,9 @@ data.frame(
 
 \footnotesize
 
-- **Prof. Dr. Edzer Pebesma**, Institute for Geoinformatics, WWU, edzer.pebesma@uni-muenster.de
+- **Prof. Dr. Annabel Chen**, Nanyang Technological University, NTU, annabelchen@ntu.edu.sg 
+- **Dr. Dominique Makowski** Nanyang Technological University, NTU, dom.makowski@gmail.com
 
-- **Prof. Dr. Marco Painho** NOVA Information Management School, painho@novaims.unl.pt
-
-- **Dr. Daniel Hölbling**, Department of Geoinformatics - Z\_GIS, PLUS, daniel.hoelbling@plus.ac.at
 
 \normalsize
 
