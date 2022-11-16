@@ -111,8 +111,8 @@ tibble:: tribble(
 
 \footnotesize
 
-- Makowski, D.; **Te, A.S.**; Pham, T.; Lau, Z.J.; Chen, S.H.A. The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices Using NeuroKit2. Entropy 2022, 24, 1036. https://doi.org/10.3390/e24081036
-- Makowski, D., Te, A., Kirk, S., Liang, N. Z., & Chen, S. A. (2022, October 26). The Illusion Game: A Novel Experimental Paradigm Provides Evidence for a General Factor of Visual Illusion Sensitivity and Personality Correlates. (under review). https://doi.org/10.31234/osf.io/9pjx5
+- Makowski, D., **Te, A.**, Pham, T., Lau, Z., & Chen, S. A. (2022, June 1). The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices using NeuroKit2. https://doi.org/10.31234/osf.io/v5tqw
+- Makowski, D., **Te, A.**, Kirk, S., Liang, N. Z., & Chen, S. A. (2022, October 26). The Illusion Game: A Novel Experimental Paradigm Provides Evidence for a General Factor of Visual Illusion Sensitivity and Personality Correlates. (under review). https://doi.org/10.31234/osf.io/9pjx5
 
 \normalsize
 
