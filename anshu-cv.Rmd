@@ -187,6 +187,8 @@ tribble(
 ```{r conferences}
 tibble:: tribble(
   ~ title, ~ event, ~ date,
+  "EEG Complexity as a Marker of Spontaneous Lies", "Organization for Human Brain Mapping (OHBM)", "07, 2023",
+  "Neurokit2: An open-source Python software to analyse physiological data", "Organization for Human Brain Mapping (OHBM)", "07, 2023",
   "Fractal dimension of EEG activity is linked to distinct facets of resting-state cognition",  "Organization for Human Brain Mapping (OHBM)", "06, 2022",
   "A Closer Look at Cardiac Contraction and the Effect of Cardiac Timing on Cognitive Control",  "Organization for Human Brain Mapping (OHBM)", "06, 2022",
 )|> 
