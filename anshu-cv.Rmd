@@ -110,8 +110,8 @@ tibble:: tribble(
 ===========================
 
 \footnotesize
-
-- Makowski, D., **Te, A.**, Pham, T., Lau, Z., & Chen, S. A. (2022, June 1). The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices using NeuroKit2. https://doi.org/10.31234/osf.io/v5tqw
+- Yang, H., Tng, G.Y.Q., Khoo, S.S. & **Te, A.** Smartphone-use profiles and cognitive and socioemotional outcomes in middle-aged and older adults: a latent profile analysis. *Curr Psychol* (2023). https://doi.org/10.1007/s12144-023-04537-w 
+- Makowski, D., **Te, A.**, Pham, T., Lau, Z., & Chen, S. A. The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices using NeuroKit2. *Entropy* (2022).  https://doi.org/10.3390/e24081036
 - Makowski, D., **Te, A.**, Kirk, S., Liang, N. Z., & Chen, S. A. (2022, October 26). The Illusion Game: A Novel Experimental Paradigm Provides Evidence for a General Factor of Visual Illusion Sensitivity and Personality Correlates. (under review). https://doi.org/10.31234/osf.io/9pjx5
 
 \normalsize
@@ -203,7 +203,7 @@ tibble:: tribble(
 tibble:: tribble(
   ~ area, ~ org, ~ date,
     "Deans List", "National University of Singapore", "2020",
-  "Wan Boo Sow Chinese Studeies (GE)", "National University of Singapore", "2019",
+  "Wan Boo Sow Chinese Studies (GE)", "National University of Singapore", "2019",
   "Deans List", "National University of Singapore", "2019",
 )|> 
   brief_entries(what = area, when = date, with = org, .protect=TRUE)
@@ -216,6 +216,7 @@ tibble:: tribble(
 tibble:: tribble(
   ~ desc, ~location, ~ date,
   "Regular volunteer (IMHope)", "Institute of Mental Health", "2022-Current",
+  "Regular Volunteer", "Singapore After-Care Association", "2022-Current",
   "Overseas volunteer (Project Sangkhem)", "Cambodia", "2019",
   "Intern", "Children's Partnership Pte Ltd (Singapore)", "2019"
 )|> 
@@ -251,8 +252,8 @@ tribble(
 ```{r techtable, results='markup'}
 tribble(
    ~`Coding Languages`, ~Software, ~Other,
-  "R -- Python--SPSS",
-  "RStudio --jsPsych",
+  "R -- Python -- SPSS",
+  "RStudio -- jsPsych -- PsychoPy",
   "Git -- Markdown"
 ) |>
   knitr::kable(booktabs = T, align = 'c', escape = F, format = "latex") |>
