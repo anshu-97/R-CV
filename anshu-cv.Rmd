@@ -1,8 +1,8 @@
 ---
 name: An Shu Te
-position: "Research Assistant at Clinical Brain Lab"
+position: "Masters Student (Clinical Psychology)"
 address: |
-         | Nanyang Technological University, Singapore
+         | National University of Singapore
 profilepic: 
 phone: +65 9877 0811
 email: "teanshu97@gmail.com"
@@ -52,7 +52,7 @@ library(gridExtra)
 Biography
 ==========================================
 
-\paragraphstyle{My research interests lie in emotion regulation, particularly in investigating its association with interoception and personality traits. I am also interested in investigating the mechanistic underpinnings of psychotic and mood disorders, as well as the role of parental passive-aggression on children's externalizing and interalizing behaviours.}
+\paragraphstyle{My research interests lie in emotion regulation, particularly in investigating its association with interoception and maladaptive personality traits. I am also interested in investigating the mechanistic underpinnings of psychotic and mood disorders, as well as the role of parent-child attachments on children's externalizing and interalizing behaviours.}
 
 \faIcon{briefcase} Research Experience
 ============================================
@@ -61,7 +61,7 @@ Biography
 
 tibble:: tribble(
   ~title, ~date, ~company, ~location, ~desc,
-  'Research Assistant', '10-2021, Present', 'Clinical Brain Lab', 'Nanyang Technological University', c(
+  'Research Assistant', '10-2021, 08-2023', 'Clinical Brain Lab', 'Nanyang Technological University', c(
     'Develop and conduct online cognitive behavioural tasks and surveys (using jsPscyh etc.,)',
     'Perform EEG, physiological and behavioural data collection, preprocessing and data analysis',
     'Coordinate data collection and cognitive training sessions.',
@@ -110,9 +110,11 @@ tibble:: tribble(
 ===========================
 
 \footnotesize
+- Makowski D, Lau ZJ, Pham T, **Te, A.**, et al. (2023, 23 April) The Heart can Lie: The Role of Interoception and Theory of Mind in Deception. (under review). DOI: 10.31234/osf.io/p342w.
+- Mavros, P., Ngoi, Z., Kirk, S., **Te, A.**, et al. (2023, May 15). Attenuating subjective crowding through beauty: an online study on the interaction between environment aesthetics, typology and crowdedness. (under review). DOI: https://doi.org/10.31234/osf.io/ezybm
+- Makowski, D., **Te, A.**, Kirk, S., Liang, N. Z., & Chen, S. A. The Illusion Game: A Novel Experimental Paradigm Provides Evidence for a General Factor of Visual Illusion Sensitivity and Personality Correlates. *Scientific Reports* (2023). https://doi.org/10.31234/osf.io/9pjx5
 - Yang, H., Tng, G.Y.Q., Khoo, S.S. & **Te, A.** Smartphone-use profiles and cognitive and socioemotional outcomes in middle-aged and older adults: a latent profile analysis. *Curr Psychol* (2023). https://doi.org/10.1007/s12144-023-04537-w 
 - Makowski, D., **Te, A.**, Pham, T., Lau, Z., & Chen, S. A. The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices using NeuroKit2. *Entropy* (2022).  https://doi.org/10.3390/e24081036
-- Makowski, D., **Te, A.**, Kirk, S., Liang, N. Z., & Chen, S. A. (2022, October 26). The Illusion Game: A Novel Experimental Paradigm Provides Evidence for a General Factor of Visual Illusion Sensitivity and Personality Correlates. (under review). https://doi.org/10.31234/osf.io/9pjx5
 
 \normalsize
 
