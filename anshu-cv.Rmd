@@ -16,15 +16,10 @@ date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::awesomecv:
     keep_tex: false
+    show_footer: true
+    includes:
+      in_header: header.txt
 always_allow_html: yes
-header-includes:
-  \usepackage{float}
-  \usepackage{multicol}
-  \usepackage{colortbl}
-  \arrayrulecolor{white}
-  \usepackage{hhline}
-  \definecolor{dark-gray}{gray}{1.5}
-  \colorlet{text}{darkgray}
 editor_options: 
   chunk_output_type: console
 ---
@@ -52,7 +47,7 @@ library(gridExtra)
 Biography
 ==========================================
 
-\paragraphstyle{My research interests lie in emotion regulation, particularly in investigating its association with interoception and maladaptive personality traits. I am also interested in investigating the mechanistic underpinnings of psychotic and mood disorders, as well as the role of parent-child attachments on children's externalizing and interalizing behaviours.}
+\paragraphstyle{My research interests lie in emotion regulation, particularly in its association with interoception and personality traits. I am also interested in investigating the underpinnings of psychotic and mood disorders, as well as the role of parent-child attachments on children's behaviours.}
 
 \faIcon{briefcase} Research Experience
 ============================================
@@ -64,16 +59,16 @@ tibble:: tribble(
   'Research Assistant', '10-2021, 08-2023', 'Clinical Brain Lab', 'Nanyang Technological University', c(
     'Develop and conduct online cognitive behavioural tasks and surveys (using jsPscyh etc.,)',
     'Perform EEG, physiological and behavioural data collection, preprocessing and data analysis',
-    'Coordinate data collection and cognitive training sessions.',
-    'Assist in the preparation and writing of progress reports, scientific presentations, manuscripts, abstracts and publications',
-    'Manage and maintain project records.',
+    'Coordinate data collection and cognitive training sessions',
+    'Assist in the preparation and writing of scientific presentations, manuscripts, abstracts and publications',
+    'Manage and maintain project records',
     'Coordinate project meetings and facilitate communication among project personnel',
     'Develop and maintain project operational procedures, training materials and documents',
      'Train and mentor other research assistants and student assistants'),
   'Research Assistant', '05-2021, 10-2021', 'ABC Lab', 'Singapore Management University', c('Recruit subjects on and off campus',
     'Develop and conduct surveys and cognitive behavioural tasks',
     'Summarize research findings and preprocess data',
-    'Assisting in the preparation and writing of progress reports, scientific presentations, abstracts, manuscripts and publications',
+    'Assisting in the preparation and writing of scientific presentations, abstracts, manuscripts and publications',
     'Train and mentor other research assistants and student assistants')
 ) |> 
   detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect = TRUE)
@@ -87,9 +82,10 @@ tibble:: tribble(
 ```{r teaching, eval = T}
 tibble:: tribble(
   ~title, ~date, ~company, ~location, ~desc,
+  'Clinical Psychology Intern', '01-2024, 06-2024', 'Clinical and Health Psychology Centre', 'National University of Singapore', c('Conduct intervention and neuropsychological assessments for both adults and children'),
   'Research Assistant', '08-2022, 08-2022', 'Clinical Brain Lab', 'Nanyang Technological University', c('Conducted an "Intro to Github" workshop'),
   'Research Assistant', '05-2021, 10-2021', 'ABC Lab', 'Singapore Management University', c('Screen older adults for neurocognitive deficits using assessment tools'),
-  'Special Education Teacher', '08-2020, 05-2021', 'Fernvale Garden School', 'Movement for the Intellectually Disabled', c('Taught students (7 - 18 year olds) with moderate to severe neurodevelopmental and behavioural disorders a range of subjects (English, Math etc.,) as well as basic living skills','Teach students different coping mechanisms to manage behavioural disorders and facilitate behaviour management workshops','Provide regular assessment of living skills, educational progress and behavioural management for children', 'Formulate individualized education plans and treatment and inetervention plans regularly', "Provide basic assessment of children's behavioural needs as well as educational progress",'Support students’ learning using a range of different teaching strategies and handmade as well as self-sourced IT resources'),'Intern', '06-2019, 08-2019', 'Childrens Partnership Pte Ltd', 'Singapore', c('Shadow principal psychologist and assist during intervention sessions','Provide brief case reports based on clinical observations', 'Engage and teach children in special needs teaching programmes', 'Organize social and special needs educational programs to facilitate learning for children', 'Facilitate social skills training and behavioural interventions')
+  'Special Education Teacher', '08-2020, 05-2021', 'Fernvale Garden School', 'Movement for the Intellectually Disabled', c('Taught students (7 - 18 year olds) with moderate to severe neurodevelopmental and behavioural disorders a range of subjects (English, Math etc.,) as well as basic living skills','Teach students different coping mechanisms to manage behavioural disorders and facilitate behaviour management workshops','Provide regular assessment of living skills, educational progress and behavioural management for children', 'Formulate individualized education plans and treatment and inetervention plans regularly', "Provide basic assessment of children's behavioural needs as well as educational progress",'Support students’ learning using a range of different teaching strategies and resources'),'Intern', '06-2019, 08-2019', 'Childrens Partnership Pte Ltd', 'Singapore', c('Shadow principal psychologist and assist during intervention sessions','Provide brief case reports based on clinical observations', 'Engage and teach children in special needs teaching programmes', 'Organize social and special needs educational programs to facilitate learning for children', 'Facilitate social skills training and behavioural interventions')
 ) |> 
   detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect=TRUE)
 ```
@@ -102,6 +98,7 @@ tibble:: tribble(
 ```{r education, eval = T}
 tibble:: tribble(
   ~ study, ~ university, ~ loc, ~ dates, ~ details,
+  "Department of Psychology", "National University of Singapore", "Singapore", "2023 - 2025", c("Master of Psychology (Clinical)"),
     "Department of Psychology", "National University of Singapore", "Singapore", "2016 - 2020", c("Bachelor of Social Sciences with Honors (Highest Distinction) in Psychology", "Honors Thesis: What Happens After we Choose to Eat the Forbidden Fruit - Effects of Indulgence Autonomy on Post-Temptation Motivation"),)|> 
   detailed_entries(study, dates, university, loc, details, .protect=TRUE)
 ```
@@ -204,6 +201,7 @@ tibble:: tribble(
 ```{r dist}
 tibble:: tribble(
   ~ area, ~ org, ~ date,
+  "NCSS Social Service Scholarship","National Council of Social Service", "2023",
     "Deans List", "National University of Singapore", "2020",
   "Wan Boo Sow Chinese Studies (GE)", "National University of Singapore", "2019",
   "Deans List", "National University of Singapore", "2019",
