@@ -1,6 +1,6 @@
 ---
 name: An Shu Te
-position: "Masters Student (Clinical Psychology)"
+#position: "Masters Student (Clinical Psychology)"
 #address: |
  #        | National University of Singapore
 profilepic: 
@@ -64,6 +64,7 @@ tibble:: tribble(
      'Train and mentor other research assistants and student assistants'),
   'ABC Lab', '05-2021, 10-2021', 'Research Assistant', 'Singapore Management University', c('Recruit subjects on and off campus',
     'Develop and conduct surveys and cognitive behavioural tasks',
+    'Screen older adults for neurocognitive deficits using standardised assessment tools',
     'Summarize research findings and preprocess data',
     'Assist in the preparation and writing of scientific presentations, abstracts, manuscripts and publications',
     'Train and mentor other research assistants and student assistants')
@@ -81,8 +82,8 @@ tibble:: tribble(
   ~title, ~date, ~company, ~location, ~desc,
   'Clinical and Health Psychology Centre', '01-2024, 06-2024', 'Clinical Psychologist Trainee', 'National University of Singapore', c('Conduct intervention and neuropsychological assessments for both adults and children'),
   # 'Research Assistant', '08-2022, 08-2022', 'Clinical Brain Lab', 'Nanyang Technological University', c('Conducted an "Intro to Github" workshop'),
-  'ABC Lab', '05-2021, 10-2021', 'Research Assistant', 'Singapore Management University', c('Screen older adults for neurocognitive deficits using assessment tools'),
-  'Fernvale Garden School', '08-2020, 05-2021', 'Special Education Teacher', 'Movement for the Intellectually Disabled (MINDS)', c('Taught 7 - 18 year olds with moderate to severe neurodevelopmental and behavioural disorders in a range of subjects','Teach students different coping mechanisms to manage behavioural disorders and facilitate behaviour management workshops','Provide regular assessment of living skills, educational progress and behavioural management for children', 'Formulate individualized education plans and treatment and inetervention plans regularly', "Provide basic assessment of children's behavioural needs as well as educational progress"),'Childrens Partnership Pte Ltd', '06-2019, 08-2019', 'Intern', 'Childrens Partneship Pte Ltd (Singapore)', c('Shadow principal psychologist and assist during intervention sessions','Provide brief case reports based on clinical observations', 'Engage and teach children in special needs teaching programmes', 'Organize social and special needs educational programs to facilitate learning for children', 'Facilitate social skills training and behavioural interventions')
+  # 'ABC Lab', '05-2021, 10-2021', 'Research Assistant', 'Singapore Management University', c(),
+  'Fernvale Garden School', '08-2020, 05-2021', 'Special Education Teacher', 'Movement for the Intellectually Disabled (MINDS)', c('Taught 7 - 18 year olds with moderate to severe neurodevelopmental and behavioural disorders in a range of subjects','Teach students different coping mechanisms to manage behavioural disorders and facilitate behaviour management workshops','Provide regular assessment of living skills, educational progress and behavioural management for children', 'Formulate individualized education plans and treatment and inetervention plans regularly', "Provide basic assessment of children's behavioural needs as well as educational progress"),'Childrens Partnership Pte Ltd', '06-2019, 08-2019', 'Intern', 'Childrens Partneship Pte Ltd (Singapore)', c('Shadow principal psychologist and assist during intervention sessions','Provide brief case reports based on clinical observations', 'Engage and teach children in special needs teaching programmes', 'Facilitate social skills training and behavioural interventions')
 ) |> 
   detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect=TRUE)
 ```
@@ -96,7 +97,8 @@ tibble:: tribble(
 tibble:: tribble(
   ~ study, ~ university, ~ loc, ~ dates, ~details,
   "National University of Singapore", "Master of Psychology (Clinical)", "Singapore", "2023 - 2025", c("Master's Dissertation: Exploring Latent Profiles in Informant Discrepancies: A Study of Youth Behaviour in Singapore"),
-    "National University of Singapore", "Bachelor of Social Sciences with Honors (Highest Distinction) in Psychology", "Singapore", "2016 - 2020", c("Honors Thesis: What Happens After we Choose to Eat the Forbidden Fruit - Effects of Indulgence Autonomy on Post-Temptation Motivation"),)|> 
+    "National University of Singapore", "Bachelor of Social Sciences (Honors) in Psychology", "Singapore", "2016 - 2020", c("Graduated with Highest Distinction: 4.80/5.0","Honors Thesis: What Happens After we Choose to Eat the Forbidden Fruit - Effects of Indulgence Autonomy on Post-Temptation Motivation"),
+ "University of Toronto (St. George Campus)", "University Exchange Programme", "Canada", "2018", c("NASA Exchange Scholarship"))|> 
   detailed_entries(study, dates, university, loc, details, .protect=TRUE)
 ```
 
@@ -205,7 +207,7 @@ tibble:: tribble(
   brief_entries(what = area, when = date, with = org, .protect=TRUE)
 ```
 
-\faIcon{hand-holding-heart} Volunteer work
+\faIcon{hand-holding-heart} Volunteering Experience
 ===============================
 
 ```{r vol}
