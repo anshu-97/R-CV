@@ -49,6 +49,25 @@ Biography
 
 \paragraphstyle{My research interests lie in emotion regulation, particularly in its association with interoception and personality traits. I am also interested in investigating the underpinnings of psychotic and mood disorders, as well as the role of parent-child attachments on children's behaviours.}
 
+
+\faIcon{hospital} Clinical Experience
+==================================================
+
+```{r clinical, eval = T}
+tibble:: tribble(
+  ~title, ~date, ~company, ~location, ~desc,
+  'Paediatrics Psychological Services', '01-2025, 06-2025', 'Clinical Psychologist-in-Training', 'National Univeristy Hospital', c('Implemented appropriate psychotherapy interventions for inpatients and outpatients between 6 to 18 years old', 'Conducted psychometric assessments for referred patients', 'Worked with a multidisciplinary team and contributed to the overall care plan of patients', 'Assisted in the development of materials for patients'),
+  
+  'Hougang Sheng Hong Family Service Centre/ Kampong Kapor Community Services', '07-2024, 12-2024', 'Clinical Psychologist-in-Training', 'Community Psychology Hub', c('Conducted appropriate psychotherapy interventions and trauma assessments for adults and children', 'Conducted psychometric and mental health assessments for vulnerable adults and preschool children', 'Worked with a multidisciplinary team and contributed to the overall care plan of clients', 'Conducted a workshop for female survivors of family violence'),
+  
+  'Clinical and Health Psychology Centre', '01-2024, 06-2024', 'Clinical Psychologist-in-Training', 'National University of Singapore', c('Implemented appropriate psychotherapy interventions for adults and youths', 'Conducted psychometric assessments for adults and children'),
+  
+  'Childrens Partnership Pte Ltd', '06-2019, 08-2019', 'Psychology Intern', 'Childrens Partneship Pte Ltd (Singapore)', c('Shadowed principal psychologist and assisted in psychotherapy interventions','Wrote brief case reports based on clinical observations', 'Engaged and taught children in special needs teaching programmes', 'Co-facilitated social skills training and behavioural intervention sessions'),
+  
+) |> 
+  detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect=TRUE)
+```
+
 \faIcon{briefcase} Research Experience
 ============================================
 
@@ -57,34 +76,32 @@ Biography
 tibble:: tribble(
   ~title, ~date, ~company, ~location, ~desc,
   'Clinical Brain Lab', '10-2021, 08-2023', 'Research Assistant', 'Nanyang Technological University', c(
-    'Develop and conduct online cognitive behavioural tasks and surveys (using jsPscyh etc.,)',
-    'Perform EEG, physiological and behavioural data collection, preprocessing and data analysis',
-    'Assist in the preparation and writing of scientific presentations, manuscripts, abstracts and publications',
-     'Train and mentor other research assistants and student assistants'),
-  'ABC Lab', '05-2021, 10-2021', 'Research Assistant', 'Singapore Management University', c('Develop and conduct surveys and cognitive behavioural tasks',
-    'Screen older adults for neurocognitive deficits using standardised assessment tools',
-    'Summarize research findings and preprocess data',
-    'Assist in the preparation and writing of scientific presentations, abstracts, manuscripts and publications',
-    'Train and mentor other research assistants and student assistants')
+    'Developed and conducted online cognitive tasks and surveys (using jsPscyh, Python etc.,)',
+    'Assisted in the collection of EEG, physiological and behavioural data', 
+    'Performed preprocessing and data analysis',
+    'Assisted in the preparation and writing of scientific presentations, manuscripts, abstracts and publications',
+     'Trained and mentored research and student assistants'),
+  
+  'ABC Lab', '05-2021, 10-2021', 'Research Assistant', 'Singapore Management University', c('Developed and conducted online surveys and cognitive tasks with older adults and preschool children',
+    'Assisted in the screening of older adults for neurocognitive deficits using psychometric assessment tools',
+    'Performed preprocessing of collected data',
+    'Assisted in the preparation and writing of scientific presentations, abstracts, manuscripts and publications',
+    'Trained and mentored research and student assistants')
 ) |> 
   detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect = TRUE)
 
 ```
 
-
-\faIcon{chalkboard} Clinical/Teaching Experience
+\faIcon{chalkboard} Other Experience
 ==================================================
 
 ```{r teaching, eval = T}
 tibble:: tribble(
   ~title, ~date, ~company, ~location, ~desc,
-  'Community Psychology Hub', '07-2024, 12-2024', 'Clinical Psychologist-in-Training', 'Hougang Sheng Hong Family Service Centre/Kampong Kapor Community Services', c('Conduct psychotherapy and trauma assessments for adults and youths', 'Conduct neuropsychological assessments for adults', 'Conducted group workshop for survivors of family violence'),
-  'Clinical and Health Psychology Centre', '01-2024, 06-2024', 'Clinical Psychologist-in-Training', 'National University of Singapore', c('Conduct intervention and neuropsychological assessments for both adults and children'),
-  'Fernvale Garden School', '08-2020, 05-2021', 'Special Education Teacher', 'Movement for the Intellectually Disabled (MINDS)', c('Taught 7 - 18 year olds with moderate to severe neurodevelopmental and behavioural disorders in a range of subjects','Teach students different coping mechanisms to manage behavioural disorders and facilitate behaviour management workshops','Provide regular assessment of living skills, educational progress and behavioural management for children', 'Formulate individualized education plans and treatment and inetervention plans regularly', "Provide basic assessment of children's behavioural needs as well as educational progress"),'Childrens Partnership Pte Ltd', '06-2019, 08-2019', 'Intern', 'Childrens Partneship Pte Ltd (Singapore)', c('Shadow principal psychologist and assist during intervention sessions','Provide brief case reports based on clinical observations', 'Engage and teach children in special needs teaching programmes', 'Facilitate social skills training and behavioural interventions')
+ 'Fernvale Garden School', '08-2020, 05-2021', 'Special Education Teacher', 'Movement for the Intellectually Disabled (MINDS)', c('Taught 7 - 18 year olds with moderate to severe neurodevelopmental disorders academic subjects and daily living skills','Co-facilitated behaviour management workshops for students', 'Conceptualised individualized education plans and intervention plans for students', "Conducted basic assessments of students' behavioural needs as well as educational progress")
 ) |> 
   detailed_entries(what=title, when=date, with=company, where=location, why=desc, .protect=TRUE)
 ```
-
 
 
 \faIcon{university} Education
@@ -103,11 +120,12 @@ tibble:: tribble(
 ===============================
 
 \footnotesize
-- Makowski D, Lau ZJ, Pham T, **Te, A.**, et al. (2023, 23 April) The Heart can Lie: The Role of Interoception and Theory of Mind in Deception. (under review). DOI: 10.31234/osf.io/p342w.
-- Mavros, P., Ngoi, Z., Kirk, S., **Te, A.**, et al. (2023, May 15). Attenuating subjective crowding through beauty: an online study on the interaction between environment aesthetics, typology and crowdedness. (under review). DOI: https://doi.org/10.31234/osf.io/ezybm
+- Makowski D., **Te, A.**, Neves, A., Kirk, S., Ngoi., Mavros., Chen, S.A. Too Beautiful to be Fake: Attractive Faces are Less Likely to be Judged as Articifically Generated. *Acta Psychologica* (2025). https://doi.org/10.1016/j.actpsy.2024.104670
+- Makowski D., Lau, Z.J., Pham, T., **Te, A.**, Kirk, S., Liauw, C., Chen, S.A. The Heart can Lie: A Preliminary Investigation of the Role of Interoception and Theory of Mind in Deception. *Current Psychology* (2024). https://doi.org/10.1007/s12144-024-06890-w
 - Makowski, D., **Te, A.**, Kirk, S., Liang, N. Z., & Chen, S. A. The Illusion Game: A Novel Experimental Paradigm Provides Evidence for a General Factor of Visual Illusion Sensitivity and Personality Correlates. *Scientific Reports* (2023). https://doi.org/10.31234/osf.io/9pjx5
-- Yang, H., Tng, G.Y.Q., Khoo, S.S. & **Te, A.** Smartphone-use profiles and cognitive and socioemotional outcomes in middle-aged and older adults: a latent profile analysis. *Curr Psychol* (2023). https://doi.org/10.1007/s12144-023-04537-w 
+- Yang, H., Tng, G.Y.Q., Khoo, S.S. & **Te, A.** Smartphone-use profiles and cognitive and socioemotional outcomes in middle-aged and older adults: a latent profile analysis. *Current Psychology* (2023). https://doi.org/10.1007/s12144-023-04537-w 
 - Makowski, D., **Te, A.**, Pham, T., Lau, Z., & Chen, S. A. The Structure of Chaos: An Empirical Comparison of Fractal Physiology Complexity Indices using NeuroKit2. *Entropy* (2022).  https://doi.org/10.3390/e24081036
+- Mavros, P., Ngoi, Z., Kirk, S., **Te, A.**, et al. (2023, May 15). Attenuating subjective crowding through beauty: an online study on the interaction between environment aesthetics, typology and crowdedness. (under review). DOI: https://doi.org/10.31234/osf.io/ezybm
 
 \normalsize
 
@@ -210,9 +228,9 @@ tibble:: tribble(
 ```{r vol}
 tibble:: tribble(
   ~ desc, ~location, ~ date,
-  "Regular volunteer (IMHope)", "Institute of Mental Health", "2022-Current",
-  "Regular Volunteer", "Singapore After-Care Association", "2022-Current",
-  "Overseas volunteer (Project Sangkhem)", "Cambodia", "2019",
+  "IMHope", "Institute of Mental Health", "2022-Current",
+  "Volunteer After-Care Programme", "Singapore After-Care Association", "2022-Current",
+  "Project Sangkhem (overseas volunteer)", "Cambodia", "2019",
 )|> 
   brief_entries(what = desc, with=location, when = date, .protect=TRUE)
 ```
@@ -287,7 +305,7 @@ data.frame(
 tribble(
    ~`Coding Languages`, ~Software, ~Other,
   "R -- Python -- SPSS",
-  "RStudio -- jsPsych -- PsychoPy",
+  "jsPsych -- PsychoPy",
   "Git -- Markdown"
 ) |>
   knitr::kable(booktabs = T, align = 'c', escape = F, format = "latex") |>
